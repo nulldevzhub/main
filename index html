@@ -2,29 +2,49 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Página com +</title>
+  <title>Mini Pastebin</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      text-align: center;
-      margin-top: 100px;
+      margin: 40px;
     }
-    .plus-button {
-      font-size: 48px;
+    input, textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 15px;
       padding: 10px 20px;
+      font-size: 16px;
       cursor: pointer;
-      border: none;
-      background: none;
-      color: #000;
     }
   </style>
 </head>
 <body>
-  <button class="plus-button" onclick="irParaNovaPagina()">+</button>
+  <h1>Publicar uma Paste</h1>
+
+  <label for="pasteName">Nome da Paste:</label>
+  <input type="text" id="pasteName" placeholder="Digite o nome da paste" />
+
+  <label for="pasteContent">Conteúdo:</label>
+  <textarea id="pasteContent" rows="10" placeholder="Digite o conteúdo aqui..."></textarea>
+
+  <button onclick="salvarPaste()">Salvar</button>
 
   <script>
-    function irParaNovaPagina() {
-      window.location.href = 'nova-paste.html';
+    function salvarPaste() {
+      const nome = document.getElementById('pasteName').value.trim();
+      const conteudo = document.getElementById('pasteContent').value.trim();
+
+      if (!nome || !conteudo) {
+        alert('Preencha o nome e o conteúdo da paste.');
+        return;
+      }
+
+      localStorage.setItem('paste_' + nome, conteudo);
+      alert('Paste "' + nome + '" salva com sucesso!');
     }
   </script>
 </body>
