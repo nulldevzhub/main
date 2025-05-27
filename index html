@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Página com +</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    .plus-button {
+      font-size: 48px;
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <button class="plus-button" onclick="irParaNovaPagina()">+</button>
 
+  <script>
+    function irParaNovaPagina() {
+      window.location.href = 'nova-paste.html';
+    }
+  </script>
+</body>
+</html>
